@@ -8,17 +8,36 @@ class Svg{
         this.textElement = ""
     }
     render(){
-        return '<svg version="'
+        return '<svg version="'//I need to finish this
+    }
+    setShapesElement(shape){
+        this.shapesElement = shape.render();
+    }
+    setTextElement(text){
+        this.shapesElement = text.render();
     }
 }
 
-const questions = {
+const questions = [
     {
         type: 'input',
         name: 'text',
         message: 'Enter a minimum of 3 characters for logo text.',
     },
     {
-        
+        type: 'input',
+        name: 'text-color',
+        message: 'Enter a color keyword or hexadecimal number for text-color choice.',
     },
-};
+    {
+        type: 'list',
+        name: 'shape',
+        message: 'Enter a color keyword or hexadecimal number for shape-color choice.',
+        choices: ['Triangle, Square, Circle'],
+    },
+    {
+        type: 'input',
+        name: 'text',
+        message: 'Enter a minimum of 3 characters for logo text.',
+    },
+];
