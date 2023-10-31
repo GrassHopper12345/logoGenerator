@@ -8,13 +8,13 @@ class Svg{
         this.textElement = ""
     }
     render(){
-        return '<svg version="'//I need to finish this
+        return '<svg version=""'//I need to finish this
     }
     setShapesElement(shape){
         this.shapesElement = shape.render();
     }
     setTextElement(text){
-        this.shapesElement = text.render();
+        this.shapesElement = '<text x="150" y="125" font-size="60"';
     }
 }
 
