@@ -1,10 +1,10 @@
 const gracefulFS = require('./node_modules/graceful-fs/graceful-fs');
-const inquirer = required('inquirer');
+const inquirer = require('inquirer');
 const { Square, Circle, Triangle } = require('./lib/shapes');
 
 
 class Svg {
-    constructer() {
+    constructor() {
         this.shapesElement = ""
         this.textElement = ""
     }
@@ -15,7 +15,7 @@ class Svg {
         this.shapesElement = shape.render();
     }
     setTextElement(text, color) {
-        this.shapesElement = '<text x="150" y="125" font-size="60" text-anchor="middle"/>';
+        this.textElement = '<text x="150" y="125" font-size="60" text-anchor="middle"/>';
     }
 }
 
@@ -43,7 +43,7 @@ const questions = [
     },
 ];
 
-writeToFile(nameOfFIle, data) => {
+function writeToFile(nameOfFIle, data) {
     console.log("Writing [" + data + "] to file [" + nameOfFIle + "]")
     gracefulFS.writeFile(nameOfFIle, data, (err) => {
         if (err) {
@@ -57,10 +57,10 @@ async function initialize() {
     let stringForSvg = "";
     let fileForSvg = "logo.svg";
 
-    const answers = inquirer.prompt(questions);
+    const answers = await inquirer.prompt(questions);
     let userTextInput = "";
     if (answers.text.length > 0 && answers.text.length < 4) {
-        userTextInput = amswers.text;
+        userTextInput = answers.text;
     } else {
         console.log("Error! Please input up to 3 characters and try again");
         return;
@@ -78,13 +78,13 @@ async function initialize() {
 
     // user shape if else statement
     let userShapeInput;
-    if (userShape === "Triangle" || userShape === "triangle") {
+    if (userShapeImage === "Triangle" || userShapeImage === "triangle") {
         userShapeInput = new Triangle();
         console.log("User shape-image selected as Triangle");
-    } else if (userShape === "Square" || userShape === "square") {
+    } else if (userShapeImage === "Square" || userShapeImage === "square") {
         userShapeInput = new Square();
         console.log("User shape-image selected as Square");
-    } else if (userShape === "Circle" || userShape === "circle") {
+    } else if (userShapeImage === "Circle" || userShapeImage === "circle") {
         userShapeInput = new Circle();
         console.log("User shape-image selected as Circle");
     } else {
