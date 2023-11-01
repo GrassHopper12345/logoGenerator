@@ -1,16 +1,30 @@
 # Logo Generator
 
-## MOTIVATION
+## Description
+
+## Table of Contents
 
 
-## REASON FOR PROJECT
+## Overview
 
 
-## PROBLEM AND SOLUTION
+## User Story
 
 
-## DESCRIPTION
+## Acceptance Criteria
 
 
-### GITHUB:
+## Usage Instructions
+
+
+### GITHUB URL:
 https://github.com/GrassHopper12345/logoGenerator
+
+## Walk-Through Video:
+
+
+## Screenshots
+
+
+## Installation 
+

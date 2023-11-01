@@ -9,7 +9,7 @@ class Svg {
         this.textElement = ""
     }
     render() {
-        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width='400" height="400">${this.shapesElement}${this.textElement}</svg>`
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapesElement} ${this.textElement}</svg>`
     }
     setTextElement(text, color) {
         this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
@@ -77,7 +77,7 @@ async function initialize() {
     console.log("User shape-image input: [" + userShapeImage + "]");
 
     // user shape if else statement
-    let userShapeInput;
+    var userShapeInput;
     if (userShapeImage === "Triangle" || userShapeImage === "triangle") {
         userShapeInput = new Triangle();
         console.log("User shape-image selected as Triangle");
@@ -91,7 +91,7 @@ async function initialize() {
         console.log("Error! Incorrect user shape!");
     }
 
-    userShapeInput.setColor(userShapeColor);
+    userShapeInput.setColors(userShapeColor);
 
     // creating a new svg file and setting elements to new file
     let svg = new Svg();
