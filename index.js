@@ -1,20 +1,20 @@
 const gracefulFS = require('./node_modules/graceful-fs/graceful-fs');
 const inquirer = required('inquirer');
-const {Square, Circle, Triangle} = require('./lib/shapes');
+const { Square, Circle, Triangle } = require('./lib/shapes');
 
 
-class Svg{
-    constructer(){
+class Svg {
+    constructer() {
         this.shapesElement = ""
         this.textElement = ""
     }
-    render(){
+    render() {
         return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width='400" height="400"`//I need to finish this
     }
-    setShapesElement(shape){
+    setShapesElement(shape) {
         this.shapesElement = shape.render();
     }
-    setTextElement(text, color){
+    setTextElement(text, color) {
         this.shapesElement = '<text x="150" y="125" font-size="60" text-anchor="middle"/>';
     }
 }
@@ -52,12 +52,16 @@ writeToFile(nameOfFIle, data) => {
         console.log("Congrats, you did it, you generated an svg logo file(logo.svg)!");
     });
 }
+async function initialize() {
+    console.log("Initializing");
+    let svgString = "";
+    let svgFile = "logo.svg";
 
-const answers = inquirer.prompt(questions);
+    const answers = inquirer.prompt(questions);
     let userTextInput = "";
     if (answers.text.length > 0 && answers.text.length < 4) {
         userTextInput = amswers.text;
-    }else {
+    } else {
         console.log("Error! Please input up to 3 characters and try again");
         return;
     }
@@ -71,19 +75,19 @@ const answers = inquirer.prompt(questions);
     // user inpur for shape-image
     userShapeImage = answers['shape-image'];
     console.log("User shape-image input: [" + userShapeImage + "]");
- 
+
     // user shape if else statement
     let userShapeInput;
-    if (userShape === "Triangle" || userShape === "triangle"){
+    if (userShape === "Triangle" || userShape === "triangle") {
         userShapeInput = new Triangle();
         console.log("User shape-image selected as Triangle");
-    } else if (userShape === "Square" || userShape === "square"){
+    } else if (userShape === "Square" || userShape === "square") {
         userShapeInput = new Square();
         console.log("User shape-image selected as Square");
-    }else if (userShape === "Circle" || userShape === "circle"){
+    } else if (userShape === "Circle" || userShape === "circle") {
         userShapeInput = new Circle();
         console.log("User shape-image selected as Circle");
-    }else {
+    } else {
         console.log("Error! Incorrect user shape!");
     }
 
@@ -92,4 +96,7 @@ const answers = inquirer.prompt(questions);
     // creating a new svg file and setting elements to new file
 
     let svg = new Svg();
-        svg.setShapesElement(userTextInput, userShapeColor);)
+    svg.setShapesElement(userTextInput, userShapeColor);)
+
+}
+initialize();
