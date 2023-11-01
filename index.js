@@ -54,8 +54,8 @@ writeToFile(nameOfFIle, data) => {
 }
 async function initialize() {
     console.log("Initializing");
-    let svgString = "";
-    let svgFile = "logo.svg";
+    let stringForSvg = "";
+    let fileForSvg = "logo.svg";
 
     const answers = inquirer.prompt(questions);
     let userTextInput = "";
@@ -94,9 +94,15 @@ async function initialize() {
     userShapeInput.setColor(userShapeColor);
 
     // creating a new svg file and setting elements to new file
-
     let svg = new Svg();
-    svg.setShapesElement(userTextInput, userShapeColor);)
+    svg.setShapesElement(userShapeInput);
+    svg.setTextElement(userTextInput, userTextColor);
+    stringForSvg = svg.render();
 
+    // view shape in log
+    console.log("Shape-image:\n\n" + stringForSvg);
+    console.log("Shape Generated!");
+    console.log("Writing to new file...");
+    writeToFile(fileForSvg, stringForSvg);
 }
 initialize();
