@@ -1,6 +1,6 @@
 const gracefulFS = require('./node_modules/graceful-fs/graceful-fs');
-const inquirer = require('inquirer');
-const { Square, Circle, Triangle } = require('./lib/shapes');
+const inquirer = require("inquirer");
+const { Square, Circle, Triangle } = require("./lib/shapes");
 
 
 class Svg {
@@ -9,13 +9,13 @@ class Svg {
         this.textElement = ""
     }
     render() {
-        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width='400" height="400"`//I need to finish this
-    }
-    setShapesElement(shape) {
-        this.shapesElement = shape.render();
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width='400" height="400">${this.shapesElement}${this.textElement}</svg>`
     }
     setTextElement(text, color) {
-        this.textElement = '<text x="150" y="125" font-size="60" text-anchor="middle"/>';
+        this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
+    }
+    setShapesElement(shape) {
+        this.shapesElement = shape.render()
     }
 }
 
