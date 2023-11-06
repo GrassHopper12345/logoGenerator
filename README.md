@@ -57,6 +57,11 @@ https://github.com/GrassHopper12345/logoGenerator
 ![Alt text](<assets/Screenshot 2023-11-02 at 5.06.38 PM.png>)
 
 ![Alt text](<assets/Screenshot 2023-11-02 at 5.08.11 PM.png>)
+
+![Alt text](<assets/Screenshot 2023-11-06 at 5.07.52 PM.png>)
 ## Installation 
 1. Follow the link to the GitHub repository above.
 2. Clone the repository to your VS Code or similar code editor.
+
+
+[def]: <assets/Screenshot 2023-11-06 at 5.07.52 PM.png>
